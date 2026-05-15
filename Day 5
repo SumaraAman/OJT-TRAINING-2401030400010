@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Iraa Soles</title>
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family: Arial, sans-serif;
+      background:#f5f5f5;
+    }
+
+    /* LOGO */
+    .logo{
+      font-size:40px;
+      color:black;
+      font-family:'Cinzel', serif;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      text-align:center;
+      padding:15px 0;
+      background:white;
+    }
+
+    /* NAVBAR */
+    .navbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:15px 40px;
+      background:white;
+      border-bottom:2px solid red;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .nav-center{
+      display:flex;
+      gap:25px;
+      flex-wrap:wrap;
+    }
+
+    .nav-center a{
+      text-decoration:none;
+      color:black;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .nav-center a:hover{
+      color:red;
+    }
+
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:20px;
+    }
+
+    .search-box{
+      display:flex;
+      align-items:center;
+      background:#f1f1f1;
+      border-radius:20px;
+      padding:6px 12px;
+    }
+
+    .search-box input{
+      border:none;
+      outline:none;
+      background:none;
+      padding-left:5px;
+    }
+
+    .icon{
+      font-size:22px;
+      cursor:pointer;
+    }
+
+    /* HERO SECTION */
+    .hero{
+      height:90vh;
+      background-image:url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.5);
+    }
+
+    .hero-content{
+      position:relative;
+      color:white;
+      text-align:center;
+      z-index:2;
+    }
+
+    .hero-content h1{
+      font-size:60px;
+      margin-bottom:20px;
+    }
+
+    .hero-content p{
+      font-size:22px;
+      margin-bottom:30px;
+    }
+
+    .shop-btn{
+      padding:14px 32px;
+      background:red;
+      color:white;
+      border:none;
+      border-radius:30px;
+      font-size:18px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .shop-btn:hover{
+      background:white;
+      color:black;
+    }
+
+    /* PRODUCTS */
+    .products{
+      padding:60px 8%;
+    }
+
+    .products h2{
+      text-align:center;
+      margin-bottom:40px;
+      font-size:38px;
+      color:#222;
+    }
+
+    .product-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:white;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    .card img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+      transition:0.4s;
+    }
+
+    .card:hover img{
+      transform:scale(1.05);
+    }
+
+    .card-content{
+      padding:20px;
+      text-align:center;
+    }
+
+    .card-content h3{
+      margin-bottom:10px;
+    }
+
+    .price{
+      color:red;
+      font-size:20px;
+      font-weight:bold;
+      margin-bottom:15px;
+    }
+
+    .add-cart{
+      padding:12px 20px;
+      background:black;
+      color:white;
+      border:none;
+      border-radius:30px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .add-cart:hover{
+      background:red;
+    }
+
+    /* ABOUT */
+    .about{
+      padding:70px 8%;
+      background:white;
+    }
+
+    .about-container{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:50px;
+      flex-wrap:wrap;
+    }
+
+    .about-text{
+      flex:1;
+    }
+
+    .about-text h2{
+      font-size:40px;
+      margin-bottom:20px;
+    }
+
+    .about-text p{
+      font-size:18px;
+      line-height:1.8;
+      color:#555;
+      margin-bottom:15px;
+    }
+
+    .about-image{
+      flex:1;
+    }
+
+    .about-image img{
+      width:100%;
+      border-radius:15px;
+    }
+
+    /* CONTACT */
+    .contact{
+      padding:70px 8%;
+      background:#f9f9f9;
+    }
+
+    .contact h2{
+      text-align:center;
+      font-size:40px;
+      margin-bottom:40px;
+    }
+
+    .contact-container{
+      display:flex;
+      gap:40px;
+      flex-wrap:wrap;
+    }
+
+    .contact-info{
+      flex:1;
+      font-size:18px;
+      line-height:2;
+    }
+
+    .contact-form{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea{
+      padding:14px;
+      border:1px solid #ccc;
+      border-radius:8px;
+    }
+
+    .contact-form button{
+      padding:14px;
+      background:black;
+      color:white;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .contact-form button:hover{
+      background:red;
+    }
+
+    /* LOCATION */
+    .location{
+      padding:70px 8%;
+      background:white;
+      text-align:center;
+    }
+
+    .location h2{
+      font-size:40px;
+      margin-bottom:20px;
+    }
+
+    .location p{
+      font-size:20px;
+      margin-bottom:30px;
+      line-height:1.8;
+    }
+
+    .map-container{
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    /* MODAL */
+    .modal{
+      display:none;
+      position:fixed;
+      z-index:2000;
+      left:0;
+      top:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.5);
+    }
+
+    .modal-content{
+      background:white;
+      margin:8% auto;
+      padding:25px;
+      width:350px;
+      border-radius:10px;
+      position:relative;
+    }
+
+    .close{
+      position:absolute;
+      right:15px;
+      top:10px;
+      font-size:28px;
+      cursor:pointer;
+    }
+
+    .modal-header{
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:20px;
+    }
+
+    .tab{
+      flex:1;
+      text-align:center;
+      padding:10px;
+      font-weight:bold;
+      cursor:pointer;
+      border-bottom:2px solid transparent;
+    }
+
+    .tab.active{
+      border-bottom:2px solid red;
+      color:red;
+    }
+
+    .form-group{
+      margin-bottom:15px;
+    }
+
+    .form-group input{
+      width:100%;
+      padding:10px;
+      border:1px solid #ccc;
+      border-radius:5px;
+    }
+
+    .btn{
+      width:100%;
+      padding:12px;
+      background:red;
+      color:white;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    footer{
+      background:#111;
+      color:white;
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
+      line-height:1.8;
+    }
+
+    /* MOBILE */
+    @media(max-width:768px){
+
+      .navbar{
+        flex-direction:column;
+        gap:15px;
+        padding:15px;
+      }
+
+      .nav-center{
+        justify-content:center;
+      }
+
+      .hero-content h1{
+        font-size:40px;
+      }
+
+      .hero-content p{
+        font-size:18px;
+      }
+
+      .logo{
+        font-size:28px;
+      }
+
+      .about-container,
+      .contact-container{
+        flex-direction:column;
+      }
+
+      .about-text h2,
+      .contact h2,
+      .location h2{
+        font-size:32px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- LOGO -->
+  <div class="logo">
+    Iraa Soles
+  </div>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+
+    <div class="nav-center">
+      <a href="#">New & Featured</a>
+      <a href="#">Men</a>
+      <a href="#">Women</a>
+      <a href="#">Kids</a>
+      <a href="#">Jordan</a>
+      <a href="#">Sale</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#location">Location</a>
+    </div>
+
+    <div class="nav-right">
+      <div class="search-box">
+        🔍 <input type="text" placeholder="Search">
+      </div>
+
+      <span class="icon">♡</span>
+      <span class="icon">🛍️</span>
+      <span class="icon" id="userIcon">👤</span>
+    </div>
+
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Step Into Style</h1>
+      <p>Premium Sneakers Collection 2026</p>
+      <button class="shop-btn">Shop Now</button>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <div class="about-container">
+
+      <div class="about-text">
+        <h2>About Iraa Soles</h2>
+
+        <p>
+          Iraa Soles is a premium sneaker and streetwear brand offering stylish,
+          comfortable, and high-quality footwear for every generation.
+        </p>
+
+        <p>
+          Our mission is to bring global sneaker fashion trends to India with
+          affordable luxury and exclusive collections.
+        </p>
+      </div>
+
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=1200&auto=format&fit=crop" alt="">
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products">
+
+    <h2>Trending Sneakers</h2>
+
+    <div class="product-grid">
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1000&auto=format&fit=crop" alt="">
+        
+        <div class="card-content">
+          <h3>Nike Air Max</h3>
+          <div class="price">₹4,999</div>
+          <button class="add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1000&auto=format&fit=crop" alt="">
+        
+        <div class="card-content">
+          <h3>Jordan Retro</h3>
+          <div class="price">₹6,499</div>
+          <button class="add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=1000&auto=format&fit=crop" alt="">
+        
+        <div class="card-content">
+          <h3>Adidas Street</h3>
+          <div class="price">₹5,299</div>
+          <button class="add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <h2>Contact Us</h2>
+
+    <div class="contact-container">
+
+      <div class="contact-info">
+        <p><strong>Phone:</strong> +91 98765 43210</p>
+        <p><strong>Email:</strong> support@iraasoles.com</p>
+        <p><strong>Instagram:</strong> @iraasoles</p>
+        <p><strong>Working Hours:</strong> 10 AM - 9 PM</p>
+      </div>
+
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="5"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- LOCATION -->
+  <section class="location" id="location">
+
+    <h2>Visit Our Store</h2>
+
+    <p>
+      Iraa Soles Store<br>
+      Sector 7, Gandhinagar, Gujarat, India
+    </p>
+
+  </section>
+
+  <!-- MODAL -->
+  <div id="authModal" class="modal">
+
+    <div class="modal-content">
+
+      <span class="close" id="closeModal">&times;</span>
+
+      <div class="modal-header">
+        <div class="tab active" id="signInTab">Sign In</div>
+        <div class="tab" id="createTab">Create Account</div>
+      </div>
+
+      <!-- SIGN IN -->
+      <div id="signInForm">
+
+        <div class="form-group">
+          <input type="email" placeholder="Email">
+        </div>
+
+        <div class="form-group">
+          <input type="password" placeholder="Password">
+        </div>
+
+        <button class="btn">Sign In</button>
+
+      </div>
+
+      <!-- CREATE ACCOUNT -->
+      <div id="createForm" style="display:none;">
+
+        <div class="form-group">
+          <input type="text" placeholder="Full Name">
+        </div>
+
+        <div class="form-group">
+          <input type="email" placeholder="Email">
+        </div>
+
+        <div class="form-group">
+          <input type="password" placeholder="Password">
+        </div>
+
+        <button class="btn">Create Account</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Iraa Soles | All Rights Reserved</p>
+    <p>Gandhinagar, Gujarat, India</p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    // MODAL
+    const userIcon = document.getElementById('userIcon');
+    const modal = document.getElementById('authModal');
+    const closeModal = document.getElementById('closeModal');
+
+    const signInTab = document.getElementById('signInTab');
+    const createTab = document.getElementById('createTab');
+
+    const signInForm = document.getElementById('signInForm');
+    const createForm = document.getElementById('createForm');
+
+    userIcon.onclick = () => {
+      modal.style.display = 'block';
+    }
+
+    closeModal.onclick = () => {
+      modal.style.display = 'none';
+    }
+
+    window.onclick = (e) => {
+      if(e.target == modal){
+        modal.style.display = 'none';
+      }
+    }
+
+    // TABS
+    signInTab.onclick = () => {
+      signInTab.classList.add('active');
+      createTab.classList.remove('active');
+
+      signInForm.style.display = 'block';
+      createForm.style.display = 'none';
+    }
+
+    createTab.onclick = () => {
+      createTab.classList.add('active');
+      signInTab.classList.remove('active');
+
+      createForm.style.display = 'block';
+      signInForm.style.display = 'none';
+    }
+
+    // ADD TO CART
+    const cartButtons = document.querySelectorAll('.add-cart');
+
+    cartButtons.forEach(button => {
+      button.addEventListener('click', () => {
+
+        button.innerText = "Added ✓";
+        button.style.background = "green";
+
+        setTimeout(() => {
+          button.innerText = "Add to Cart";
+          button.style.background = "black";
+        }, 1500);
+
+      });
+    });
+
+  </script>
+
+</body>
+</html>
