@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tailwind Flexbox Layout</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+  <!-- Main Container -->
+  <div class="w-full max-w-6xl p-6">
+
+    <!-- Heading -->
+    <h1 class="text-4xl font-bold text-center text-blue-600 mb-10">
+      Flexbox Layout with Tailwind CSS
+    </h1>
+
+    <!-- Flex Container -->
+    <div class="flex flex-wrap gap-6 justify-center">
+
+      <!-- Card 1 -->
+      <div class="bg-white shadow-lg rounded-2xl p-6 w-72 hover:scale-105 transition">
+        <h2 class="text-2xl font-semibold mb-3 text-gray-800">
+          Card One
+        </h2>
+        <p class="text-gray-600">
+          This is a simple flexbox card using Tailwind CSS utility classes.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white shadow-lg rounded-2xl p-6 w-72 hover:scale-105 transition">
+        <h2 class="text-2xl font-semibold mb-3 text-gray-800">
+          Card Two
+        </h2>
+        <p class="text-gray-600">
+          Tailwind makes flexbox layouts easy and responsive.
+        </p>
+      </div>
+
+      <!-- Card 3 -->   
+      <div class="bg-white shadow-lg rounded-2xl p-6 w-72 hover:scale-105 transition">
+        <h2 class="text-2xl font-semibold mb-3 text-gray-800">
+          Card Three
+        </h2>
+        <p class="text-gray-600">
+          You can align, center, and wrap items with utility classes.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
